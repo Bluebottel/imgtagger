@@ -1,0 +1,61 @@
+<meta charset="utf-8">
+<html>
+  <head>
+    <title>Folder ./images/</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+
+    <table>
+      <tbody>
+	<tr>
+	  <td><img src="https://i.imgur.com/I5p027a.jpg" />
+	    <input type="text" style="width: 300px"/></td>
+	  <td><img src="https://i.imgur.com/I5p027a.jpg" />
+	    <input type="text" style="width: 300px"/></td>
+	  <td><img src="https://i.imgur.com/I5p027a.jpg" />
+	    <input type="text" style="width: 300px"/></td>
+	  <td><img src="https://i.imgur.com/I5p027a.jpg" />
+	    <input type="text" style="width: 300px"/></td>
+	</tr>
+	<tr>
+	  <td><img src="https://i.imgur.com/I5p027a.jpg" />
+	    <input type="text" style="width: 300px"/></td>
+	</tr>
+	<tr>
+	  <td><img src="https://i.imgur.com/I5p027a.jpg" />
+	    <input type="text" style="width: 300px"/></td>
+	</tr>
+      </tbody>
+    </table>
+
+    <br>
+    
+    <textarea rows="8" cols="100" id="output"> </textarea>
+    <button onclick="generateJson()">Generate</button>
+    <script>
+      
+      var images = document.getElementsByTagName("img");
+      var text = document.getElementsByTagName("input");
+
+      images = Array.prototype.slice.call(images);
+      text = Array.prototype.slice.call(text);
+      
+      function generateJson() {
+	  output = document.getElementById("output");
+
+	  output.value = "{\n";
+
+	  for (var i=0;i<text.length;i++) {
+	      output.value += '  "' + images[i].src + '": '
+		  + '"' + text[i].value + '"\n';
+	  }
+
+	  output.value += "}";
+      }
+      
+    </script>
+    
+
+  </body>
+</html>
