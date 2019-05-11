@@ -5,9 +5,20 @@ td {
 table {
     border: 0;
     border-collapse: collapse;
-    color: 
 }
 
 img {
     width: 300px;
+}
+
+input[type=text] {
+    width: 300px;
+}
+
+table {
+    width: 1200px;
+}
+
+td {
+    padding: 10px;
 }
