@@ -352,4 +352,24 @@
 <input type="text" /></td><td><img src="./images//eofd6u06xuu21.jpg" />
 <input type="text" /></td></tr><tr><td><img src="./images//dogselfie2.jpg" />
 <input type="text" /></td><td><img src="./images//!!!6BFBXyO - Pork Bun the chinchilla.jpg" />
-<input type="text" /></td></tbody></table><br><br> <textarea rows="8" cols="100"></textarea></body></html>
+<input type="text" /></td></tr></tbody></table><br><br> <textarea rows="8" cols="100"></textarea><button onclick="generateJson()">Generate</button><script>
+var images = document.getElementsByTagName("img");
+var text = document.getElementsByTagName("input");
+
+// HTML collection -> array
+images = Array.prototype.slice.call(images);
+text = Array.prototype.slice.call(text);
+
+function generateJson() {
+    output = document.getElementsByTagName("textarea")[0];
+    output.value = "{\n";
+
+    for (var i=0;i<text.length;i++) {
+	output.value += '  "' + images[i].src + '": '
+	    + '"' + text[i].value + '"\n';
+    }
+
+    output.value += "}";
+}
+</script>
+</body></html>

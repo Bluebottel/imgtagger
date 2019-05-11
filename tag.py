@@ -21,23 +21,23 @@ out = '<meta charset="utf-8"><html><head>' \
 images = os.listdir(sys.argv[1])
 
 for i, image in enumerate(images, 1):
-    out += '<td><img src="'\
-        + sys.argv[1] + '/' + image\
-        + '" />'\
+    out += '<td><img src="' \
+        + sys.argv[1] + '/' + image \
+        + '" />' \
         + '\n<input type="text" /></td>'
     
     if i % TABLE_COLS == 0:
         out += "</tr><tr>"
 
-    
-    
-out += '</tbody></table><br><br> <textarea rows="'\
-    + str(TEXT_ROWS) + '" cols="' + str(TEXT_COLS)\
-    + '"></textarea>' \
-    + "</body></html>"
+with io.open("script.js", "r", encoding="utf-8") as sfile:
+    out += '</tr></tbody></table><br><br> <textarea rows="' \
+        + str(TEXT_ROWS) + '" cols="' + str(TEXT_COLS) \
+        + '"></textarea><button onclick="generateJson()">Generate</button>'
 
-outfile = io.open("outfile.html", mode="w+", encoding="utf-8")
-outfile.write(out)
-outfile.close()
+    for line in sfile:
+        out += line
+    
+    out += "</body></html>"
 
-print("Done")
+with io.open("outfile.html", mode="w+", encoding="utf-8") as outfile:
+    outfile.write(out)

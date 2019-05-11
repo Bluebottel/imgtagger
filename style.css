@@ -22,3 +22,8 @@ table {
 td {
     padding: 10px;
 }
+
+textarea {
+    width: 800px;
+    height: 200px;
+}
