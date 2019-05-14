@@ -8,13 +8,23 @@ text = Array.prototype.slice.call(text);
 
 function generateJson() {
     output = document.getElementsByTagName("textarea")[0];
-    output.value = "{\n";
+    let res = "{\n";
 
     for (var i=0;i<text.length;i++) {
-	output.value += '  "' + images[i].src + '": '
-	    + '"' + text[i].value + '"\n';
+	res += '  "' + images[i].getAttribute("src") + '": [';
+	let words = text[i].value.split(",");
+
+	words.forEach(elem => {
+	    if(elem[0] == " ") {
+		elem = elem.substr(1);
+	    }
+	    res += '"' + elem + '", ';
+	});
+
+	// also remove the extra ", " at the end of each list
+	res = res.slice(0, -2) +  '],\n';
     }
 
-    output.value += "}";
+    output.value = res.slice(0,-2) + "\n}";
 }
 </script>

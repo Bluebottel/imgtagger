@@ -29,6 +29,7 @@ for i, image in enumerate(images, 1):
     if i % TABLE_COLS == 0:
         out += "</tr><tr>"
 
+# add the JSON generating javascript from file
 with io.open("script.js", "r", encoding="utf-8") as sfile:
     out += '</tr></tbody></table><br><br> <textarea rows="' \
         + str(TEXT_ROWS) + '" cols="' + str(TEXT_COLS) \
