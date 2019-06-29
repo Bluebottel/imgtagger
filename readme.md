@@ -1,6 +1,3 @@
-Imgtagger
------
-
 Imgtagger creates a basic static HTML + JS file for the manual tagging of images. Note that it doesn't do any pagination or 
 image resizing so be careful before you start on your folder with gargantuan number of large images. 
 
